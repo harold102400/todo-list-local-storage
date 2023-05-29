@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./index.js" defer></script>
+    <title>Todo-list</title>
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <script src="./src/js/index.js" defer></script>
 </head>
-<body>
-    <form id="form">
-        <input type="text" id="title">
-        <input type="text" id="description">
-        <button>
-            create new task
-        </button>
-    </form>
 
-    <div id="container">
-        <!-- <ul>
-            <li>
-                my first todo
-                <button>editar</button>
-                <button>borrar</button>
-            </li>
-            <li>
-                my first todo
-                <button>editar</button>
-                <button>borrar</button>
-            </li>
-            <li>
-                my first todo
-                <button>editar</button>
-                <button>borrar</button>
-            </li>
-        </ul> -->
-    </div>
+<body>
+    <main>
+        <section>
+            <article>
+                <div class="form__container">
+                    <form id="form">
+                        <input type="text" id="title" name="title" class="input__todo">
+                        <input type="text" id="description" name="description" class="input__todo">
+                        
+                            <button class="button__task">
+                                Submit
+                            </button>
+                        
+                        <span id="error__message"></span>
+                    </form>
+                </div>
+            </article>
+        <article>
+            <div id="container">
+                <ul class="todos">
+        
+                </ul>
+            </div>
+        </article>
+        </section>
+    </main>
 </body>
+
 </html>
