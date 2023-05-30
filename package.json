@@ -2,6 +2,7 @@
   "name": "todo-list-local-storage",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -12,5 +13,8 @@
   "devDependencies": {
     "nodemon": "^2.0.22",
     "servor": "^4.0.2"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
   }
 }

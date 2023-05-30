@@ -3,18 +3,20 @@
     margin: 0;
 }
 
-body{
+body {
     font-family: 'Courier New', Courier, monospace;
 }
-.form__container { 
+
+.form__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 300px;
     width: 500px;
     margin: 0 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
+
 form {
     display: flex;
     justify-content: center;
@@ -22,6 +24,7 @@ form {
     flex-direction: column;
     gap: 1rem;
     height: 100px;
+
 
 }
 
@@ -34,42 +37,47 @@ form {
     transition: 0.6s ease-in-out;
     width: 250px;
 }
+
 .input__todo:focus {
     outline-color: transparent;
     border-bottom: #b30059 solid;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
 .button__task {
     font-size: 1rem;
     border-radius: 0.5rem;
     padding: 0.3rem;
     cursor: pointer;
-    width: 150px;;
+    width: 150px;
+    ;
 }
 
-#container{
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 400px;
     width: 500px;
     margin: 0 auto;
     margin-bottom: 2rem;
     flex-direction: column;
+
 }
 
 .todos {
-    
     padding: 1rem;
     margin: 0 auto;
     align-items: center;
-list-style: none;
-
+    list-style: none;
 }
 
-.todos > li {
+.todos>li {
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
 }
 
 .todo__btn {
@@ -77,11 +85,39 @@ list-style: none;
     border-radius: 0.5rem;
     padding: 0.3rem;
     cursor: pointer;
-    width: 100px;;
+    width: 100px;
 }
 
 #error__message {
     font-size: 1rem;
     font-weight: bold;
     color: red;
+}
+
+#pagination {
+    
+  background: #100a1f;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.pagination__btn {
+    cursor: pointer;
+  border: none;
+  height: 50px;
+  width: 200px;
+  background: gray;
+  color: #fff;
+  border-radius: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  transition: .3s ease all;
+}
+
+label {
+    font-size: 1.5rem;
+    font-weight: bold;
 }

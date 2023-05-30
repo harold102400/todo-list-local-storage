@@ -1,8 +1,12 @@
 const form = document.getElementById("form");
 const container = document.getElementById("container");
+const paginationContainer = document.getElementById("pagination");
+
 
 // Obtener las tareas almacenadas en el localStorage al cargar la página
 let allTodos = JSON.parse(localStorage.getItem("todos")) || [];
+let currentPage = 1;
+const tasksPerPage = 5;
 
 // Función para mostrar las tareas en el HTML
 const showTodos = (todo, index) => {
@@ -17,9 +21,38 @@ const showTodos = (todo, index) => {
 // Función para renderizar todas las tareas en el contenedor
 const renderTodos = () => {
   container.innerHTML = "";
-  allTodos.map((task, index) => {
-    return (container.innerHTML += showTodos(task, index));
+  const startIndex = (currentPage - 1) * tasksPerPage;
+  const endIndex = startIndex + tasksPerPage;
+  const tasksToShow = allTodos.slice(startIndex, endIndex);
+  tasksToShow.map((task, index) => {
+    return (container.innerHTML += showTodos(task, startIndex + index));
   });
+  adjustContainerHeight();
+  renderPagination();
+};
+
+const adjustContainerHeight = () => {
+  const todos = document.querySelectorAll(".todos");
+  let containerHeight = 0;
+
+  todos.forEach((todo) => { console.log({todo: todo.offsetHeight})
+    containerHeight += todo.offsetHeight;
+  });
+
+  container.style.height = `${containerHeight}px`;
+};
+
+const renderPagination = () => {
+  const totalPages = Math.ceil(allTodos.length / tasksPerPage);
+  console.log(allTodos.length)
+  let paginationHTML = "";
+
+  if (totalPages > 1) {
+    paginationHTML += `<button onclick="previousPage()" class="pagination__btn">Anterior</button>`;
+    paginationHTML += `<button onclick="nextPage()" class="pagination__btn">Siguiente</button>`;
+  }
+
+  paginationContainer.innerHTML = paginationHTML;
 };
 
 // Agregar evento al formulario para guardar una tarea
@@ -47,7 +80,7 @@ form.addEventListener("submit", (e) => {
 
   const formValues = {
     title: title,
-    description: description,
+    description: description
   };
 
   allTodos.push(formValues);
@@ -86,4 +119,19 @@ const editTodo = (index) => {
 
   // Renderizar las tareas actualizadas
   renderTodos();
+};
+
+const previousPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderTodos();
+  }
+};
+
+const nextPage = () => {
+  const totalPages = Math.ceil(allTodos.length / tasksPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderTodos();
+  }
 };
