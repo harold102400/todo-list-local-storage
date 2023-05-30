@@ -6,11 +6,11 @@ let allTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
 // Función para mostrar las tareas en el HTML
 const showTodos = (todo, index) => {
-  let html = `
-      <li>${todo.title}</li>
+  let html = `<ul class="todos">    
+  <li>${todo.title}</li>
       <li>${todo.description}</li>
-      <button onclick="editTodo(${index})">Editar</button>
-      <button onclick="deleteTodo(${index})">Borrar</button>`;
+      <button onclick="editTodo(${index})" class="todo__btn">Editar</button>
+      <button onclick="deleteTodo(${index})" class="todo__btn">Borrar</button></ul>`;
   return html;
 };
 
@@ -28,7 +28,7 @@ form.addEventListener("submit", (e) => {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
   const errorMessage = document.getElementById("error__message");
-  console.log(errorMessage)
+  console.log(errorMessage);
 
   const isInvalidInputFields = title === "" || description === "";
 
@@ -38,13 +38,12 @@ form.addEventListener("submit", (e) => {
 
     setTimeout(() => {
       errorMessage.innerText = "";
-      errorMessage.style.display = "none"
-    }, 3000)
+      errorMessage.style.display = "none";
+    }, 3000);
     return;
   }
-    errorMessage.innerText = "";
-    errorMessage.style.display = "none";
-
+  errorMessage.innerText = "";
+  errorMessage.style.display = "none";
 
   const formValues = {
     title: title,

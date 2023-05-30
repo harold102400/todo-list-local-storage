@@ -13,7 +13,6 @@ body{
     height: 500px;
     width: 500px;
     margin: 0 auto;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     margin-bottom: 2rem;
 }
 form {
@@ -55,10 +54,34 @@ form {
     height: 500px;
     width: 500px;
     margin: 0 auto;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     margin-bottom: 2rem;
+    flex-direction: column;
 }
 
 .todos {
-    flex-direction: column;
+    
+    padding: 1rem;
+    margin: 0 auto;
+    align-items: center;
+list-style: none;
+
+}
+
+.todos > li {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.todo__btn {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    width: 100px;;
+}
+
+#error__message {
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
 }
